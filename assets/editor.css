@@ -1,0 +1,16 @@
+.wp-block-scroll-progress-bar-progress-bar {
+    margin: 20px 0;
+}
+
+.wp-block-scroll-progress-bar-progress-bar [data-type="scroll-progress-bar/progress-bar"] {
+    margin: 20px 0;
+}
+
+/* Color palette styling to match WordPress theme colors */
+.components-color-palette__item {
+    border-radius: 50%;
+}
+
+.components-color-palette__item-wrapper {
+    margin: 0 6px 6px 0;
+}

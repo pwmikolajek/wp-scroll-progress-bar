@@ -1,0 +1,60 @@
+.scroll-progress-bar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    height: 4px;
+    background-color: rgba(0,0,0,0.1);
+    z-index: 999999 !important; /* Higher than WP admin bar (100000) */
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: block !important;
+    visibility: visible !important;
+    box-sizing: border-box !important;
+    transform: translateX(0) !important;
+    /* Ensure it escapes any container constraints */
+    contain: layout !important;
+}
+
+/* Adjust for WordPress admin bar when logged in */
+body.admin-bar .scroll-progress-bar {
+    top: 32px !important; /* Height of WP admin bar on desktop */
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar .scroll-progress-bar {
+        top: 46px !important; /* Height of WP admin bar on mobile */
+    }
+}
+
+/* For frontend users (not logged in), keep at very top */
+body:not(.admin-bar) .scroll-progress-bar {
+    top: 0 !important;
+}
+
+.scroll-progress-bar__fill {
+    height: 100% !important;
+    width: 0%;
+    background-color: #007cba;
+    transition: width 0.1s ease-out;
+    transform-origin: left center;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Custom property support with fallbacks */
+.scroll-progress-bar[style*="--progress-bg"] {
+    background-color: var(--progress-bg);
+}
+
+.scroll-progress-bar[style*="--progress-color"] .scroll-progress-bar__fill {
+    background-color: var(--progress-color);
+}
